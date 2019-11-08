@@ -154,15 +154,29 @@ def calculateEveryFixedProbability(matrix):
             print(f'({x},{y}) -> {calculateFixedProbability(matrix,x,y)}, {calculateFixedProbability(matrix,x,y, False)}')
             
 #============================================================================
-print(f'calculateMarginal(a) => {calculateMarginal(distributedMatrix)}\n')
+print('\n======= randomGuesses1 =======\n')
 print(f'randomGuesses1(10000,a,1,0) => {randomGuesses1(distributedMatrix,1,0)}\n')
+print('\n======= randomGuesses2 =======\n')
 print(f'randomGuesses2(10000,a) => {randomGuesses2(distributedMatrix)}\n')
-print(f'randomGuesses3(10000,a) => {randomGuesses3(distributedMatrix)}\n')
+print('\n======= randomGuesses3 =======\n')
+randomGuesses3Answer = randomGuesses3(distributedMatrix)
+print(f'randomGuesses3(10000,a) => {randomGuesses3Answer}\n')
+print('\n======= Graph for randomly Genereted vector =======\n')
+a = np.asarray(randomGuesses3Answer)
+plt.imshow(np.matrix(a.reshape(4,3)))
+plt.colorbar()
+plt.show()
 print('======= CalculatecalculateEveryFixedProbability =======')
 calculateEveryFixedProbability(distributedMatrix)
 print('\n======= randomGuesses times for bigMatrix =======')
 nsamples = 100000
 guesses = np.random.sample(nsamples)
 randomGuesses2(bigMatrix)
-randomGuesses3(bigMatrix)
-print("\n")
+randomGuesses3Answer = randomGuesses3(bigMatrix)
+
+print('\n======= Graph for randomly Genereted vector with big Matrix =======\n')
+
+a = np.asarray(randomGuesses3Answer)
+plt.imshow(np.matrix(a.reshape(20,5)))
+plt.colorbar()
+plt.show()
