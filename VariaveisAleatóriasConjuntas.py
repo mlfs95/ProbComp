@@ -1,3 +1,4 @@
+%matplotlib inline
 import time
 import numpy as np
 import matplotlib.pyplot as plt
@@ -151,7 +152,8 @@ def calculateEveryFixedProbability(matrix):
     width = len(matrix[0])
     for x in range(width):
         for y in range(heigth):
-            print(f'({x},{y}) -> {calculateFixedProbability(matrix,x,y)}, {calculateFixedProbability(matrix,x,y, False)}')
+            print(f'A probabilidade de x = {x}, sabendo que y = {y} é: {calculateFixedProbability(matrix,x,y, False)}')
+            print(f'A probabilidade de y = {y}, sabendo que x = {x} é: {calculateFixedProbability(matrix,x,y)}\n')
             
 #============================================================================
 print('\n======= randomGuesses1 =======\n')
